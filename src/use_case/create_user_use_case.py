@@ -14,7 +14,12 @@ def create_user_use_case(base_url: str, user_dto: UserDTO) -> User:
     Returns:
         User: The created user entity with email and password.
     """
+    if not isinstance(base_url, str) or not base_url.startswith('http') or base_url.endswith("/"):
+        raise TypeError("base_url deve ser uma string válida, que começa com 'http' e não termina com '/'")
 
+    if not isinstance(user_dto, UserDTO):
+        raise TypeError("user_dto deve ser uma instância de UserDTO")
+    
     logger.info("Iniciando create user use case.")
 
     user = User(user_dto.email, user_dto.password)
@@ -22,3 +27,5 @@ def create_user_use_case(base_url: str, user_dto: UserDTO) -> User:
 
     logger.info("User criado com sucesso.")
     return user
+
+    
