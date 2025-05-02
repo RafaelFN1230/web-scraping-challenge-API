@@ -2,6 +2,19 @@ import requests
 
 from interface.schema.api.api_book_schema import BookSchema
 def get_books(base_url, token) -> list[BookSchema]:
+    """
+    Collect all books from API
+
+    Args:
+        base_url (str): The base URL of the API.
+        token (str): The authorization token.
+
+    Returns:
+        list[BookSchema]: A list of books in BookSchema format
+
+    Raises:
+        Exception: If the request fails.
+    """
     url = f"{base_url}/BookStore/v1/Books"
 
     payload = {}

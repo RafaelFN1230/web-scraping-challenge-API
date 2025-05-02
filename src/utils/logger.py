@@ -7,6 +7,12 @@ LOG_DIR = "logs"
 os.makedirs(LOG_DIR, exist_ok=True)
 
 def get_logger(name: str = "app_logger") -> logging.Logger:
+    """ 
+    Returns a logger with the given name, or the default "app_logger" if not provided.
+    If the logger has not been created before, it is set up with a rotating file handler
+    that writes to the app.log file within the logs directory. The file is limited to 100
+    KiB in size, and up to 5 backup files are kept. The log format is "%(asctime)s - %(levelname)s - %(message)s".
+    """
     logger = logging.getLogger(name)
     logger.setLevel(logging.INFO)
 
