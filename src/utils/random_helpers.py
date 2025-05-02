@@ -3,9 +3,13 @@ import string
 
 def generate_strong_password():
     """
-    Generate a strong password, which must contain at least one lowercase letter, one uppercase letter, one digit, and one special character.
+    Generate a strong password, which must contain at least:
+    - one lowercase letter
+    - one uppercase letter
+    - one numeric character
+    - one special character
 
-    The length of the password is 8 characters.
+    The length of the password is 10 characters.
 
     Returns:
         str: The generated password.
